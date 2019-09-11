@@ -1,27 +1,45 @@
 import React, {Component} from 'react'
 
 class Search extends Component{
-    state={
-        value:'',
+    constructor(props){
+        super(props)
+        this.state = {
+            search: []
+        }
     }
 
-    handleInput=()=>{
-        this.setState({
-            value : this.search.value
+    renderSearch(){
+        let list = []
+        this.state.search.map(src =>{
+            return list.push(<li key={src.id}>{src.title}</li>)
         })
+
+        return list
     }
 
+    componentDidMount(){
+        fetch('https://my-json-server.typicode.com/panjiad/search-ReactJS/books')
+        .then(Response => Response.json())
+        .then(search => {
+            this.setState({
+                search : search
+            })
+        })
+        .catch(error => console.log(error))
+    }
+    
     render(){
+        const ul = {
+            textAlign : "left"
+        }
+
         return(
-            <form>
-                <input
-                    placeholder="cari buku"
-                    ref={input => this.search = input}
-                    onChange={this.handleInput}
-                >
-                    <p>{this.state.value}</p>
-                </input>
-            </form>
+            <div>
+                <h1>Books List</h1>
+                <ul style={ul}>
+                    {this.renderSearch()}
+                </ul>
+            </div>
         )
     }
 }
