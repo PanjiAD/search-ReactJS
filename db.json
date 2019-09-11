@@ -1,0 +1,14 @@
+{
+    "books": [
+        {"id":1, "title":"Beranak dalam kubur", "author":"Bambang Nur Cahya"},
+        {"id":2, "title":"Ketika cinta bertasbih", "author":"Dyan Purnama Annisa"},
+        {"id":3, "title":"Cintaku bertemu di negeri jiran", "author":"Bety Choe"},
+        {"id":4, "title":"Perantau", "author":"Salman Abdul Rahman"}
+    ],
+    "readers":[
+        {"id":1, "name":"Panji"},
+        {"id":2, "name":"Imam"},
+        {"id":3, "name":"Sholeh"},
+        {"id":4, "name":"Robert"}
+    ]
+}
